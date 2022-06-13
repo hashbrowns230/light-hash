@@ -1,0 +1,72 @@
+#FLOS Lightcut
+
+import math
+
+def profile_quantity_bk():
+
+    tpl = float(input("Please enter the total profile length: "))
+    s_d = input("1. Single or 2. Double: ")
+    ps = input("Please enter the shape of profile (L, U, O): ")
+
+    if tpl > 2:
+        qy = math.ceil(tpl/2)
+    else:
+        qy = math.ceil(tpl/1)
+
+    if s_d == "1":
+        tqy = qy*1
+        ec = 1
+    else:
+        tqy = qy*2
+        ec = 2
+
+    if ps == "L":
+        lp = 1
+    elif ps == "U":
+        lp = 2
+    else:
+        lp = 3
+
+    print("2m Profile :", tqy, "x 08.8721.14")
+    print("Corner:", lp, "x 08.8708.14")
+    print("End Cap:", ec, "x 08.8706.14")
+
+def profile_quantity_wh():
+
+    tpl = float(input("Please enter the total profile length: "))
+    s_d = input("1. Single or 2. Double: ")
+    ps = input("Please enter the shape of profile (L, U, O): ")
+
+    if tpl > 2:
+        qy = math.ceil(tpl/2)
+    else:
+        qy = math.ceil(tpl/1)
+
+    if s_d == "1":
+        tqy = qy*1
+        ec = 1
+    else:
+        tqy = qy*2
+        ec = 2
+
+    if ps == "L":
+        lp = 1
+    elif ps == "U":
+        lp = 2
+    else:
+        lp = 3
+
+    print("2m Profile :", tqy, "x 08.8721.30")
+    print("Corner:", lp, "x 08.8708.30")
+    print("End Cap:", ec, "x 08.8706.30")
+
+def colour():
+    colour = input("1. Black or 2. White: ")
+
+    if colour == "1":
+        profile_quantity_bk()
+    else:
+        profile_quantity_wh()
+
+print("Welcome to FLOS Lightcut Mini configuration program.")
+colour()
