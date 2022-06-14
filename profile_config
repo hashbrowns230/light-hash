@@ -1,72 +1,166 @@
 #FLOS Lightcut
 
+#finishes->single_double->length->config->summarize
+
 import math
 
-def profile_quantity_bk():
+def finishes():
+    fn = input("Choose finishes: \n 1. Black \n 2. White" "\n : ")
 
-    tpl = float(input("Please enter the total profile length: "))
-    s_d = input("1. Single or 2. Double: ")
-    ps = input("Please enter the shape of profile (L, U, O): ")
-
-    if tpl > 2:
-        qy = math.ceil(tpl/2)
+    if fn == "1":
+        black()
     else:
-        qy = math.ceil(tpl/1)
+        white()
 
-    if s_d == "1":
-        tqy = qy*1
-        ec = 1
+def black():
+    pl = int(input("\n Proposed length (m): "))
+    sys = input("\n Choose system: \n 1. Channel \n 2. Perimetral \n : ")
+
+    if pl > 2:
+        pl = math.ceil(pl/2)
     else:
-        tqy = qy*2
-        ec = 2
+        pl = math.ceil(pl)
 
-    if ps == "L":
-        lp = 1
-    elif ps == "U":
-        lp = 2
+    if sys == "1":
+
+        tpl = pl
+
+        wd = input("\n Select opening width: \n 1. 140mm \n 2. 70mm \n : ")
+        if wd == "1":
+
+            shp = input("\n number of bends:")
+
+            if shp == "1":
+                lc = 1
+            elif shp == "2":
+                lc = 2
+            elif shp == "3":
+                lc = 3
+            elif shp == "4":
+                lc = 4
+            else:
+                lc = 0
+
+            print("\nProduct codes:\n2 x 08.8706.14 - End Cap")
+            print(lc, "x 08.8708.14 - Corner Joints")
+            print(tpl, "x 08.8721.14 - 2m Profile Pair")
+
+        else:
+
+            shp = input("number of bends:")
+
+            if shp == "1":
+                lc = 1
+            elif shp == "2":
+                lc = 2
+            elif shp == "3":
+                lc = 3
+            elif shp == "4":
+                lc = 4
+            else:
+                lc = 0
+
+            print("\nProduct codes:\n2 x 08.8705.14 - End Cap")
+            print(lc, "x 08.8707.14 - Corner Joints")
+            print(tpl, "x 08.8721.14 - 2m Profile Pair")
     else:
-        lp = 3
+        tpl = pl
 
-    print("2m Profile :", tqy, "x 08.8721.14")
-    print("Corner:", lp, "x 08.8708.14")
-    print("End Cap:", ec, "x 08.8706.14")
+        ori = input("\n Orientation: \n 1. Inner \n 2. Outer \n : ")
+        shp = input("Configurations: \n 1. O \n 2. L \n 3. U \n 4. None \n : ")
 
-def profile_quantity_wh():
+        if shp == "1":
+            lc = 4
+        elif shp == "2":
+            lc = 1
+        elif shp == "3":
+            lc = 2
+        else:
+            lc = 0
 
-    tpl = float(input("Please enter the total profile length: "))
-    s_d = input("1. Single or 2. Double: ")
-    ps = input("Please enter the shape of profile (L, U, O): ")
+        if ori == "1":
+            print("\nProduct codes:\n",lc,"x 08.8709.14 - Inner L-Joint")
+        else:
+            print(lc, "x 08.8710.14 - Outer L-Joint")
 
-    if tpl > 2:
-        qy = math.ceil(tpl/2)
+        print(tpl, "x 08.8721.14 - 2m Profile Pair")
+
+
+def white():
+    pl = int(input("\n Proposed length (m): "))
+    sys = input("\n Choose system: \n 1. Channel \n 2. Perimetral \n : ")
+
+    if pl > 2:
+        pl = math.ceil(pl/2)
     else:
-        qy = math.ceil(tpl/1)
+        pl = math.ceil(pl)
 
-    if s_d == "1":
-        tqy = qy*1
-        ec = 1
+    if sys == "1":
+
+        tpl = pl
+
+        wd = input("\n Select opening width: \n 1. 140mm \n 2. 70mm \n : ")
+        if wd == "1":
+
+            shp = input("\n number of bends:")
+
+            if shp == "1":
+                lc = 1
+            elif shp == "2":
+                lc = 2
+            elif shp == "3":
+                lc = 3
+            elif shp == "4":
+                lc = 4
+            else:
+                lc = 0
+
+            print("\nProduct codes: \n2 x 08.8706.30 - End Cap")
+            print(lc, "x 08.8708.30 - Corner Joints")
+            print(tpl, "x 08.8721.30 - 2m Profile Pair")
+
+        else:
+
+            shp = input("number of bends:")
+
+            if shp == "1":
+                lc = 1
+            elif shp == "2":
+                lc = 2
+            elif shp == "3":
+                lc = 3
+            elif shp == "4":
+                lc = 4
+            else:
+                lc = 0
+
+            print("\nProduct codes: \n2 x 08.8705.30 - End Cap")
+            print(lc, "x 08.8707.30 - Corner Joints")
+            print(tpl, "x 08.8721.30 - 2m Profile Pair")
     else:
-        tqy = qy*2
-        ec = 2
+        tpl = pl
 
-    if ps == "L":
-        lp = 1
-    elif ps == "U":
-        lp = 2
-    else:
-        lp = 3
+        ori = input("\n Orientation: \n 1. Inner \n 2. Outer \n : ")
+        shp = input("Configurations: \n 1. O \n 2. L \n 3. U \n 4. None \n : ")
 
-    print("2m Profile :", tqy, "x 08.8721.30")
-    print("Corner:", lp, "x 08.8708.30")
-    print("End Cap:", ec, "x 08.8706.30")
+        if shp == "1":
+            lc = 4
+        elif shp == "2":
+            lc = 1
+        elif shp == "3":
+            lc = 2
+        else:
+            lc = 0
 
-def colour():
-    colour = input("1. Black or 2. White: ")
+        if ori == "1":
+            print("\nProduct codes:\n",lc,"x 08.8709.30 - Inner L-Joint")
+        else:
+            print(lc, "x 08.8710.30 - Outer L-Joint")
 
-    if colour == "1":
-        profile_quantity_bk()
-    else:
-        profile_quantity_wh()
+        print(tpl, "x 08.8721.30 - 2m Profile Pair")
 
-print("Welcome to FLOS Lightcut Mini configuration program.")
-colour()
+print("\nWelcome to FLOS Lightcut Mini configurator. \n ")
+
+finishes()
+
+input("\nPress Enter to continue...")
