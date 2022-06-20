@@ -1,0 +1,21 @@
+#Google Translator with text to speech
+
+#pip3 install googletrans
+import googletrans
+from googletrans import Translator
+#pip3 install gtts
+from gtts import gTTS
+#pip3 install playsound
+from playsound import playsound
+
+print("\n",googletrans.LANGUAGES,"\n")
+
+translator = Translator()
+language = input("Choose a supported language from the list above: ")
+translation = translator.translate(input("Enter text: "), dest = language)
+
+print(translation.text)
+
+tts = gTTS(translation.text, slow = False)
+tts.save("speech.mp3")
+playsound("speech.mp3")
